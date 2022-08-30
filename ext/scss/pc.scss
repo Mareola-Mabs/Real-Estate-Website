@@ -1,0 +1,1326 @@
+/*Importing Necessary CSS Partials*/
+@import 'resets';
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'maps';
+@import 'fonts';
+
+/*Beginning Of Actual Code*/
+
+/*The Scrollbar*/
+::-webkit-scrollbar                                 {width: auto;}
+
+
+::-webkit-scrollbar-thumb                           {background: slider__btn-overlay(0.95);
+
+                                        
+    &:hover                                             {background: $second__slider-btn;}
+                                        
+                                                    }
+
+::-webkit-scrollbar-track                           {background: rgba(0, 0, 0, 0.1);}
+
+/*End of Scrollbar*/
+
+// The Preloader
+.preloader                                          {background: #000 url('../loader/loader1.gif') no-repeat center center;
+                                                    background-size: 10%;
+                                                    height: 100vh;
+                                                    width: 100%;
+                                                    position: fixed;
+                                                    top: 0;
+                                                    z-index: 50;}
+// End of Preloader
+
+/*The Page Header/Background Video*/                
+.header                                             {width: 100%;
+                                                    height: 100vh;
+                                                    position: absolute;
+                                                    overflow: hidden;
+                                                    top: 0;
+                                                    left: 0;
+                                                    z-index: -1;
+                                                    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+
+
+    &__overlay                                          {width: 100%;
+                                                        height: 100vh;
+                                                        top: 0;
+                                                        position: absolute;
+                                                        background: bg__overlay2(0.5);
+                                                        z-index: 2;}
+
+    &__video                                            {width: 100%;
+                                                        height: 100vh;
+                                                    
+        video                                               {width: 100%;
+                                                            height: 100vh;
+                                                            object-fit: cover;
+                                                            opacity: 100%;
+                                                            margin: 0;
+                                                            filter: blur(2px);}
+
+        &-two, &-three, &-four                              {display: none;}
+                                                    
+                                                        }
+
+    // Start of Header Mini 
+    &__mini-container                                   {position: absolute;
+                                                        width: 100%;
+                                                        display: grid;
+                                                        z-index: 2;
+                                                        grid-template-columns: 69% 31%;
+                                                        top: 32vh;
+                                                        user-select: none;}
+
+    &__mini-text                                        {padding-left: 24%;
+                                                        overflow: hidden;}
+
+
+    &__mini-text2                                       {width: 400%;
+                                                        height: 100%;
+                                                        display: flex;
+                                                        overflow: hidden;}
+
+
+    &__mini-text-container                              {height: 100%;
+                                                        width: 100%;
+                                                        transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+                                                        padding-left: 1%;}
+
+    // &__mini-text-container-one                          {transform: translateX(-100%);}
+    &__mini-text-container-two                          {opacity: 0;}
+
+    &__mini-text-container-three                        {transform: translateX(-100%);
+                                                        opacity: 0;}
+
+    &__mini-text-container-four                         {transform: translateX(-200%);
+                                                        opacity: 0;}
+                                                        
+
+    &__upper-text                                       {font-family: 'Source Sans Pro', sans-serif;
+                                                        font-size: 0.7rem;
+                                                        font-weight: normal;
+                                                        color: btn__overlay(0.9);
+                                                        word-spacing: 5px;
+                                                        letter-spacing: 3px;}
+
+            
+    &__middle-text                                      {font-family: sans-serif;
+                                                        font-size: 3.7vw;
+                                                        color: rgba(255, 255, 255, 1.0);
+                                                        margin-top: 4.5%;
+                                                        font-weight: normal;
+                                                        padding-left: 5px;
+                                                        text-shadow: -1px -1px 1px grey;}
+
+    &__link                                             {margin-top: 6%;
+
+        a                                                   {width: 150px;
+                                                            height: 45px;
+                                                            @include flexCenter;
+                                                            border: 1px solid rgba(255, 255, 255, 0.5);
+                                                            color: rgba(255, 255, 255, 1.0);
+                                                            background: none;
+                                                            text-decoration: none;
+                                                            font-family: 'Source Sans Pro', sans-serif;
+                                                            font-weight: weights(bold);
+                                                            transition: 0.2s;
+                                                            box-shadow: 0 -1px 2px grey;
+                                                    
+            &:hover                                             {border: 1px solid btn__overlay(0.9);
+                                                                color: btn__overlay(0.9);
+                                                                box-shadow: 0 -1px 2px btn__overlay(0.7);}
+
+                                                            }
+
+                                                        }
+    // End of Header Mini
+
+    // The Header Controls
+    &__controls                                         {display: grid;
+                                                        grid-template-columns: 67% 33%;
+                                                        background: transparent;
+                                                        height: 17vh;
+                                                        width: 100%;
+                                                        position: absolute;
+                                                        padding-left: 5vw;
+                                                        bottom: 0;
+                                                        z-index: 2;}
+
+    &__control-div                                      {background: transparent;
+                                                        display: grid;
+                                                        grid-template-columns: 93% 7%;
+                                                        overflow: hidden;
+                                                        user-select: none;}
+
+    &__loader                                           {background: transparent;}
+
+    &__control-btns                                     {width: 100%;
+                                                        height: 100%;
+                                                        display: flex;
+                                                        position: relative;
+                                                        z-index: 2;
+                                                        flex-direction: column;
+                                                    
+        button                                              {width: 100%;
+                                                            height: 100%;
+                                                            border: none;
+                                                            font-size: 0.8rem;
+                                                            transition: background 0.3s ease-in-out, transform 1s ease-in-out;
+                                                            background: $first__slider-button;
+                                                            color: white;
+                                                            cursor: pointer;
+
+            &:nth-child(1)                                  {border-top-right-radius: 5px;}
+
+            &:last-child                                    {background: $second__slider-btn;}
+                                                        
+            &:hover                                             {background: $primary__color2;}
+
+            &.rotate__btns                                      {transform: rotateY(360deg);}
+                                                        
+                                                            }
+                                                    
+                                                        }
+
+    &__control-text                                     {width: 100%;
+                                                        overflow: hidden;
+                                                        height: 100%;}
+
+    &__control-text-container                           {width: 400%;
+                                                        height: 100%;
+                                                        display: flex;
+                                                        overflow: hidden;
+                                                        gap: 5vw;}
+
+    &__control-texts                                    {width: 100%;
+                                                        height: 100%;
+                                                        background: $control__background;
+                                                        transition: transform 0.3s;
+                                                        display: flex;
+                                                        gap: 40px;
+                                                        padding-left: 15vw;
+                                                        border-top-left-radius: 5px;
+                                                        padding-right: 5vw;
+                                                        align-items: center;}
+
+    &__text-div h1                                      {color: btn__overlay(0.9);
+                                                        font-size: 3.7rem;
+                                                        font-weight: 500;
+                                                        transform: scaleX(1.4);
+                                                        font-family: 'PT Serif', serif;}
+
+    &__text-div p                                       {color: rgba(255, 255, 255, 0.5);
+                                                        line-height: 1rem;
+                                                        font-family: 'Noto Sans', sans-serif;
+                                                        font-size: 0.8rem;}
+
+    &__control-texts-three                              {transform: translateX(-100%);}
+
+    &__control-texts-four                               {transform: translateX(-200%);}
+    // End of Header Control
+    
+    /*The Search Bar*/
+    &__search-container                                 {position: absolute;
+                                                        top: 23vh;
+                                                        width: 100%;
+                                                        left: 0;
+                                                        padding-right: 10.2%;
+                                                        z-index: 10;}
+
+    &__search                                           {width: 680px;
+                                                        height: 35px;
+                                                        float: right;
+                                                        background: $primary__color;
+                                                        border-radius: 5px;
+                                                        box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.25);
+                                                    
+        form                                                {width: 100%;
+                                                            height: 100%;
+                                                            @include flexCenter;
+                                                            gap: 5px;
+                                                            user-select: none;
+                                                            -webkit-touch-callout: none;
+                                                        
+            section                                             {width: 1px;
+                                                                height: 25px;
+                                                                background: rgb(225, 227, 234);}
+
+            select                                              {border: none;
+                                                                outline: none;
+                                                                
+                                                                color: slider__btn-overlay(0.95);
+                                                                font-family: 'Source Sans Pro', sans-serif;
+                                                            
+                option                                              {background: $primary__color;
+
+                
+                    &:checked                                             {background: btn__overlay(0.8);}
+                    
+                                                                    }
+                                                            
+                                                                }
+
+            input                                               {border: none;
+                                                                outline: none;
+                                                                color: slider__btn-overlay(0.7);}
+
+            label                                               {color: $control__background;}
+
+            button                                              {cursor: pointer;
+                                                                background: btn__overlay(0.9);
+                                                                border: none;
+                                                                outline: none;
+                                                                color: $primary__color;
+                                                                border-radius: 5px;
+                                                                padding: 5px 10px;
+                                                                margin-left: 15px;
+                                                                box-shadow: 0 0 2px 1px rgba(156, 60, 8, 0.5);}
+                                                        
+                                                            }
+                                                    
+                                                        }
+    /*End of Search Bar*/
+    
+
+
+                                                    }
+/*End of Page Header/Background Video*/
+
+/*Page Navigation*/
+/*Start of Main*/
+.main                                               {width: 100%;
+                                                    margin-top: 100vh;
+                                                    padding-top: 20px;
+
+    // The Navigation
+    .nav                                                {display: grid;
+                                                        width: 100%;
+                                                        grid-template-columns: repeat(20, 1fr);
+                                                        padding: 25px 50px;
+                                                        align-items: center;
+                                                        transition: 0.5s;
+                                                        user-select: none;
+
+        &.mobile__background                                {background: rgba(51, 51, 51, 0.98);
+                                                            border-top: 1px rgba(51, 51, 51, 0.98) solid;
+                                                            border-bottom: 1px rgba(51, 51, 51, 0.98) solid;}
+
+        // The Logo
+        &__logo                                             {grid-column: 1/5;
+                                                            width: 100%;
+                                                            margin-left: 40%;
+                                                            padding-top: 10px;
+
+            a                                                   {height: 100%;}
+                                                        
+            img                                                 {width: 200px;
+                                                                height: 50px;
+                                                                transition: 1s;}
+                                                        
+                                                            }
+
+        // The List
+        &__menu                                             {grid-column: 6/15;
+                                                            width: 100%;
+                                                            padding-top: 20px;
+                                                            
+        
+            ul                                                  {display: flex;
+                                                                list-style: none;
+                                                                justify-content: center;
+                                                                height: 100%;
+                                                            
+                li                                                  {display: flex;
+                                                                    justify-content: center;
+                                                                    align-items: center;
+                                                                    text-align: center;
+
+                    &:not(:last-child)                                  {margin-right: 6%;}
+                
+                    a                                                   {display: flex;
+                                                                        width: 100%;
+                                                                        text-decoration: none;
+                                                                        font-size: 0.8rem;
+                                                                        font-weight: bold;
+                                                                        transform: scaleY(0.89);
+                                                                        font-family: 'Source Sans Pro', sans-serif;
+                                                                        color: $primary__color;
+                                                                        text-shadow: -1px -1px 1px grey;
+                                                                    
+                        &:hover                                             {text-decoration: underline;}
+                                                                    
+                                                                        }
+                
+                                                                    }
+                                                            
+                                                                }
+        
+                                                            }
+
+        // The Nav Items
+        &__items                                            {grid-column: 15/-1;
+                                                            display: flex;}
+
+        &__contact                                          {width: 100%;
+                                                            height: 100%;
+                                                        
+            a                                                   {background: $primary__color2;
+                                                                text-decoration: none;
+                                                                color: $primary__color;
+                                                                width: 150px;
+                                                                height: 35px;
+                                                                font-weight: bold;
+                                                                border-radius: 5px;
+                                                                font-size: 0.75rem;
+                                                                transform: scaleY(0.89);
+                                                                @include flexCenter;
+                                                                font-family: 'Source Sans Pro', sans-serif;
+                                                                margin-top: 15px;
+                                                                
+
+                &:hover                                             {text-decoration: underline;}
+                                                            
+                i                                                   {margin-left: 10px;}
+                                                            
+                                                                }
+                                                        
+                                                            }
+
+        // The Menu Button
+        &__menu-btn                                         {width: 100%;
+                                                            margin-left: 10%;}
+
+        &__menu-btn1                                        {width: 130px;
+                                                            height: 50px;
+                                                            border-radius: 5px;
+                                                            color: $primary__color;
+                                                            border: 1px solid $primary__color;
+                                                            cursor: pointer;
+                                                            @include flexCenter;
+                                                            transition: 0.3s;
+                                                            
+
+            &.mobile__border                                    {border: 1px solid $primary__color2;
+                                                                box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.25);}
+                                                           
+                                                        
+            &:hover                                             {border: 1px solid $primary__color2;}
+
+            section                                             {margin-right: 10px;
+                                                                font-size: 1.5rem;}
+
+            p                                                   { font-family: sans-serif;
+                                                                font-weight: bold;}
+                                                        
+                                                            }
+
+
+    
+                                                    
+
+                                                    
+                                                        }
+
+                                                
+// Start of Header Social
+    &__social                                           {display: flex;
+                                                        flex-direction: column;
+                                                        position: fixed;
+                                                        right: 0;
+                                                        top: 39vh;
+                                                        z-index: 10;
+                                                        padding-right: 0.6%;
+                                                    
+        span                                                {height: 34px;
+                                                            width: 40px;
+                                                            @include flexCenter;
+
+                                                        
+            &:not(:last-child)                                  {margin-bottom: 2px;}
+
+            a                                                   {text-decoration: none;
+                                                                color: $primary__color;
+                                                                font-size: 1.15rem;
+                                                                background: btn__overlay(0.9);
+                                                                width: 30px;
+                                                                height: 30px;
+                                                                @include flexCenter;
+                                                                float: right;
+                                                                border-radius: 50%;
+                                                                transition: 0.2s;
+
+                                                            
+                &:hover                                             {width: 34px;
+                                                                    height: 34px;
+                                                                    transform: rotate(30deg);}
+                                                            
+                                                                }
+                                                        
+                                                            }
+                                                    
+                                                        }
+    // End of Header Social
+                                                
+    // Slider Response/Quick Response
+    &__response                                         {position: fixed;
+                                                        right: 1.5%;
+                                                        z-index: 10;
+                                                        bottom: 3%;
+                                                        user-select: none;
+                                                
+                                                    
+        button                                              {border: none;
+                                                            background: btn__overlay(0.9);
+                                                            padding: 8px 14px;
+                                                            color: $primary__color;
+                                                            font-family: sans-serif;
+                                                            border-radius: 5px;
+                                                            float: right;
+                                                            margin-top: 20px;
+                                                            cursor: pointer;
+                                                            display: flex;
+                                                            align-items: center;
+                                                            transition: 0.2s;
+
+            &.chat__shadow                                      {box-shadow: 0 0 2.5px 2px rgba(255, 255, 255, 0.35);}
+                                                           
+                                                        
+            i                                                   {font-size: 1.2rem;
+                                                                margin-right: 10px;}
+
+                                                            }
+                                                    
+                                                        }
+
+    &__chat                                             {width: 320px;
+                                                        height: 260px;
+                                                        border-radius: 7px 7px 0 0;
+                                                        position: relative;
+                                                        background: $primary__color;
+                                                        display: none;
+                                                        user-select: none;
+                                                        box-shadow: 0 0 2.5px 2px rgba(255, 255, 255, 0.35);}
+
+    &__chat-arrow                                       {width: 12px;
+                                                        height: 12px;
+                                                        bottom: -6px;
+                                                        right: 23px;
+                                                        position: absolute;
+                                                        background: $primary__color;
+                                                        transform: rotate(45deg);
+                                                        box-shadow: 0 0 2.5px 2px rgba(255, 255, 255, 0.35);}
+
+    &__chat-head                                        {height: 60px;
+                                                        width: 100%;
+                                                        border-radius: 7px 7px 0 0;
+                                                        background: btn__overlay(0.9);
+                                                        border: 1px solid $primary__color;
+                                                        user-select: none;}
+
+    &__chat-cancel                                      {width: 100%;
+                                                        height: 20px;
+                                                        text-align: right;
+                                                        padding: 10px;
+                                                        font-size: 1.1rem;
+                                                        
+                                                    
+        i                                                   {color: rgba(255, 255, 255, 0.5);
+                                                            transition: 0.3s;
+                                                            cursor: pointer;
+
+            &:hover                                             {color: rgba(255, 255, 255, 1.0);}
+        
+                                                            }
+                                                    
+                                                        }
+    
+    &__chat-text                                        {width: 100%;
+                                                        height: 40px;
+                                                        text-align: center;
+                                                        font-size: 0.8rem;
+                                                        font-family: sans-serif;
+                                                        color: $primary__color;
+                                                        padding-right: 30px;}
+
+
+    &__chat-content                                     {height: 200px;
+                                                        padding: 10px 12px;
+                                                        display: flex;
+                                                        flex-direction: column;
+                                                    
+        a                                                   {width: 100%;
+                                                            height: 60px;
+                                                            border-radius: 10px;
+                                                            text-decoration: none;
+                                                            transition: 0.3s;
+                                                            display: grid;
+                                                            padding: 10px 10px;
+                                                            grid-template-columns: 16% 84%;
+                                                            grid-gap: 15px;
+                                                            align-items: center;
+
+            &:not(:last-child)                                  {border-bottom: 1px solid $chat__hover;}
+                                                            
+                                                        
+            &:hover                                             {background: $chat__hover;}
+                                                        
+                                                            }
+                                                        
+                                                        }
+
+    &__content-link1                                    {width: 100%;
+                                                        height: 100%;
+                                                        @include flexCenter;
+        
+        img                                                 {width: 40px;
+                                                            height: 40px;
+                                                            border-radius: 50%;}
+
+        section                                             {
+
+
+            img                                                 {width: 16px;
+                                                                height: 16px;
+                                                                margin-left: -10px;
+                                                                margin-top: 25px;}
+
+                                                            }
+    
+                                                        }
+
+    &__content-link2                                    {width: 100%;
+                                                        color: $chat__text;
+                                                        font-weight: bold;
+                                                        font-family: 'Source Sans Pro', sans-serif;
+                                                        font-size: 0.9rem;}
+    // End of Quick Response
+
+    // The ScrollTop Button
+    &__scrolltop-container                              {position: fixed;
+                                                        top: 80%;
+                                                        right: -50px;
+                                                        height: 40px;
+                                                        width: 40px;
+                                                        border-radius: 50%;
+                                                        @include flexCenter;
+                                                        transition: 0.5s;
+                                                        user-select: none;
+                                                        z-index: 10;
+                                                        transform: rotate(40deg);
+                                                        font-family: 'Courier New', Courier, monospace;
+                                                        outline: 2px dotted btn__overlay(0.9); 
+                                                        outline-offset: 4px;}
+
+
+    &__scrolltop                                        {height: 40px;
+                                                        width: 40px;
+                                                        position: fixed;
+                                                        top: 80%;
+                                                        right: -50px;
+                                                        border-radius: 50%;
+                                                        color: white;
+                                                        transition: 0.5s;
+                                                        background: btn__overlay(0.9);
+                                                        cursor: pointer;
+                                                        z-index: 10;
+                                                        @include flexCenter;
+
+        &:active                                            {background: #4E1E04;}
+
+                                                    
+
+                                                        }           
+                                                    
+    // The Mobile Nav
+    &__mobile-nav                                       {position: fixed;
+                                                        width: 100%;
+                                                        height: 100vh;
+                                                        top: 0;
+                                                        z-index: 10;
+                                                        transform: translateX(100%);
+                                                        background: rgba(51, 51, 51, 0.98);
+                                                        transition: 0.5s;
+                                                        padding-top: 150px;
+                                                        overflow-y: scroll;
+                                                        padding-left: 15%;
+                                                        padding-right: 13%;
+                                                        padding-bottom: 30px;
+                                                        display: grid;
+                                                        grid-template-columns: 1fr 1fr;
+                                                        grid-gap: 20%;
+                                                    
+        &.mobile__hide                                      {transform: translate(0);}
+                                                    
+                                                        }
+
+    &__mobile-nav-a                                     {width: 100%;
+                                                        display: flex;
+                                                        flex-direction: column;
+                                                        user-select: none;
+                                                    
+        a                                                   {text-decoration: none;
+                                                            color: $primary__color;
+                                                            font-size: 1.6rem;
+                                                            font-family: 'Source Sans Pro', sans-serif;
+                                                            text-shadow: -0.5px -0.5px 0.5px grey;
+                                                            font-weight: bold;
+                                                            transition: 0.3s;
+
+
+            &:not(:last-child)                                  {margin-bottom: 20px;}
+
+            &:hover                                             {text-decoration: underline;
+                                                                color: btn__overlay(0.7);}
+
+        span                                                    {margin-left: 15px;}
+                                                        
+                                                            }
+                                                        
+                                                        }
+
+    &__mobile-nav-b                                     {width: 100%;
+                                                        display: flex;
+                                                        flex-direction: column;
+                                                    
+        p                                                   {color: btn__overlay(0.8);
+                                                            font-size: 1.6rem;
+                                                            font-family: 'Source Sans Pro', sans-serif;
+                                                            margin-bottom: 20px;
+                                                        
+            &:not(:first-child)                                 {margin-top: 30px;}
+                                                        
+                                                            }
+                                                    
+        span                                                {color: $primary__color;
+                                                            font-size: 1.6rem;
+                                                            font-family: 'Source Sans Pro', sans-serif;}
+
+
+    a.main__appointment-link                                {text-decoration: none;
+                                                            color: $primary__color;
+                                                            font-size: 1.6rem;
+                                                            font-family: 'Source Sans Pro', sans-serif;
+                                                            transition: 0.3s;}
+
+        a.main__appointment-link:hover                          {text-decoration: underline;
+                                                                color: btn__overlay(0.7)}
+
+
+    a.main__appointment-button                              {background: $primary__color2;
+                                                            text-decoration: none;
+                                                            color: $primary__color;
+                                                            width: 240px;
+                                                            height: 50px;
+                                                            font-weight: bold;
+                                                            border-radius: 5px;
+                                                            font-size: 1rem;
+                                                            transform: scaleY(0.9);
+                                                            @include flexCenter;
+                                                            font-family: 'Source Sans Pro', sans-serif;
+                                                            margin-top: 20px;
+                                                            user-select: none;}
+
+        a.main__appointment-button:hover                        {text-decoration: underline;}
+
+        a.main__appointment-button i                            {margin-left: 10px;}
+
+
+                                                        }
+    // End of Mobile Nav
+    
+    // The Upper Contents
+    &__upper-content                                        {width: 100%;
+                                                            height: 60px;
+                                                            @include flexCenter;
+                                                            background: btn__overlay(0.09);
+                                                            @include fonts;
+                                                            font-size: 0.8rem;
+                                                            color: var(--upper-text--color);
+                                                            box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);}
+    // End of Upper Contnts
+
+    // Main Properties
+    &__properties                                           {width: 100%;
+                                                            padding: 55px 7%;
+                                                            user-select: none;}
+
+    &__properties-text                                      {color: nav__color(1.0);
+                                                            font-weight: bold;
+                                                            @include fonts;
+                                                            word-spacing: 0.2rem;
+                                                            font-size: 2rem;
+                                                            transform: translateY(300px);
+                                                            transition: 1.5s;
+                                                            opacity: 0;
+                                                        
+        &.show                                                  {transform: translateY(0);
+                                                                opacity: 1;}
+                                                        
+                                                            }
+
+    &__properties-link                                      {margin-top: 30px;
+                                                            transform: translateY(300px);
+                                                            transition: 1.5s;
+                                                            opacity: 0;
+    
+        &.show                                                  {transform: translateY(0);
+                                                                opacity: 1;}
+    
+                                                            }
+
+    a.main__properties-link-1                               {text-decoration: none;
+                                                            transition: 0.3s;
+                                                            font-family: 'Source Sans Pro', sans-serif;
+                                                            font-size: 1.1rem;
+                                                            color: btn__overlay(0.9);
+
+        &.change__color                                         {color: var(--upper-text--color);}
+
+        &:hover                                                 {color: btn__overlay(0.9);}
+                                                        
+                                                            }
+
+    a.main__properties-link-2                               {text-decoration: none;
+                                                            margin-left: 13px;
+                                                            transition: 0.3s;
+                                                            font-family: 'Source Sans Pro', sans-serif;
+                                                            font-size: 1.1rem;
+                                                            color: var(--upper-text--color);
+
+        &.change__color1                                        {color: btn__overlay(0.9);}
+
+                                                        
+        &:hover                                                 {color: btn__overlay(1.0);}
+                                                        
+                                                            }
+
+
+    &__properties-slider                                    {width: 100%;
+                                                            margin-top: 60px;
+                                                            padding-bottom: 50px;
+                                                            overflow-x: scroll;
+                                                            transform: translateY(300px);
+                                                            transition: 1.5s;
+                                                            opacity: 0;
+
+    &.show                                                  {transform: translateY(0);
+                                                            opacity: 1;}
+                                                        
+        /*The Scrollbar*/
+        &::-webkit-scrollbar                                    {width: auto;
+                                                                height: 5px;
+                                                                border-radius: 10px;}
+
+
+        &::-webkit-scrollbar-thumb                              {background: slider__btn-overlay(0.95);
+                                                                transition: 0.5s;
+                                                                margin-left: 20px;
+                                                                border-radius: 10px;
+                                        
+            &:hover                                                 {background: $second__slider-btn;}
+                                        
+                                                                }
+
+        &::-webkit-scrollbar-track                              {background: rgba(0, 0, 0, 0.1);}
+
+/*End of Scrollbar*/
+                                                        
+                                                            }
+
+    &__properties-slider-link                               {display: flex;
+                                                            height: 100%;
+                                                            width: 225vw;
+                                                            gap: 20px;
+                                                            padding-left: 10px;
+                                                            padding-top: 10px;
+                                                            padding-right: 10px;}
+
+    &__properties-slider-link1                              {height: 500px;
+                                                            width: 100%;
+                                                            border-radius: 10px;
+                                                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                                                            overflow: hidden;}
+
+    &__properties-image-link                                {height: 50%;
+                                                            overflow: hidden;
+
+        a                                                       {text-decoration: none;
+        
+            img                                                     {object-fit: cover;
+                                                                    width: 100%;
+                                                                    height: 100%;
+                                                                    transition: 1s;
+                                                            
+                &:hover                                                 {transform: scale(1.1);}
+                                                            
+                                                                }
+        
+                                                                }
+                                                        
+                                                        
+                                                            }
+
+    &__properties-fit                                       {width: 100%;
+                                                            height: 50%;
+                                                            padding: 20px 20px 0 20px;}
+
+    &__properties-icon                                      {width: 100%;
+                                                            height: 13%;
+                                                            border-bottom: 1px solid rgba(227, 229, 237, 1.0);
+                                                            font-size: 0.8rem;
+                                                            display: flex;
+                                                            gap: 13px;
+                                                            padding-bottom: 10px;
+                                                            align-items: center;
+                                                            color: rgba(30, 45, 50, 0.7);}
+
+    &__properties-desc                                      {padding-top: 20px;
+                                                            display: flex;
+                                                            flex-flow: column;
+                                                            width: 100%;
+    
+        span                                                    {color: $second__slider-btn;
+                                                                font-weight: bold;
+                                                                @include fonts;
+                                                                font-size: 1.1rem;}
+
+        a                                                       {text-decoration: none;
+                                                                font-weight: bold;
+                                                                @include fonts;
+                                                                color: btn__overlay(0.9);
+                                                                font-size: 1.2rem;
+                                                                margin-top: 10px;
+                                                            
+            &:hover                                                 {text-decoration: underline;}
+                                                            
+                                                                }
+    
+                                                            }
+
+    &__properties-location                                  {display: flex;
+                                                            margin-top: 30px;
+                                                            gap: 10px;
+                                                            width: 100%;
+                                                            font-size: 0.9rem;
+                                                            color: $second__slider-btn;
+                                                            @include fonts;
+                                                            height: 30px;}
+    // End of Main properties
+
+
+    // Main About
+    &__about                                                    {display: grid;
+                                                                grid-template-columns: 1fr 1fr;
+                                                                margin-top: 60px;
+                                                                user-select: none;
+                                                                transform: translateY(300px);
+                                                                transition: 1.5s;
+                                                                opacity: 0;
+                                                            
+        &.show                                                      {opacity: 1;
+                                                                    transform: translateY(0);}
+                                                            
+                                                                }
+
+    &__about-image                                              {width: 100%;
+                                                                height: 100%;
+                                                                overflow: hidden;
+    
+        img                                                         {width: 100%;
+                                                                    height: 100%;
+                                                                    transition: 1s;
+                                                                    object-fit: cover;
+                                                                
+            &:hover                                                     {transform: scale(1.1);}
+                                                                
+                                                                    }
+
+                                                                }
+
+
+    &__about-content                                            {width: 100%;
+                                                                height: 100%;
+                                                                padding: 9vw 8vw;
+                                                                color: white;
+                                                                background: btn__overlay(0.05);
+                                                                
+                                                            
+        a                                                           {border: none;
+                                                                    background: btn__overlay(0.9);
+                                                                    width: 150px;
+                                                                    height: 50px;
+                                                                    color: $primary__color;
+                                                                    @include fonts;
+                                                                    border-radius: 5px;
+                                                                    float: right;
+                                                                    font-size: 0.85rem;
+                                                                    margin-top: 20px;
+                                                                    cursor: pointer;
+                                                                    @include flexCenter;
+                                                                    margin-top: 35px;
+                                                                    transition: 0.2s;
+                                                                    text-decoration: none;
+                                                                    float: left;
+                                                                
+            &:hover                                                     {text-decoration: underline;}
+                                                                
+                                                                    }
+
+        h2                                                              {font-size: 2.5rem;
+                                                                        color: $second__slider-btn;}
+
+        p                                                               {margin-top: 35px;
+                                                                        color: $second__slider-btn;
+                                                                        line-height: 2rem;
+                                                                        font-size: 1.1rem;
+                                                                        @include fonts;}
+                                                            
+                                                                }
+
+
+    // End of Main about
+
+    // Main Counter
+    &__counter                                                  {width: 100%;
+                                                                display: grid;
+                                                                grid-template-columns: repeat(4, 1fr);
+                                                                padding: 5vw 5vw;
+                                                                gap: 3vw;
+                                                                user-select: none;
+                                                                cursor: default;
+                                                                transform: translateY(300px);
+                                                                transition: 1.5s;
+                                                                opacity: 0;
+                                                            
+        &.show                                                      {transform: translateY(0);
+                                                                    opacity: 1;}
+                                                            
+                                                                }
+
+    &__counter1                                                 {width: 100%;
+                                                                height: 20vw;
+                                                                transition: 0.2s;
+                                                                display: flex;
+                                                                justify-content: center;
+                                                                text-align: center;
+                                                                flex-direction: column;
+                                                                padding-left: 15px;
+                                                                padding-right: 15px;
+
+
+        h1                                                          {@include fonts;
+                                                                    font-size: 4.8vw;
+                                                                    color: $second__slider-btn;}
+
+        p                                                           {@include fonts;
+                                                                    color: $second__slider-btn;}
+                                                                
+        &:hover                                                     {background: btn__overlay(0.05);}
+                                                            
+                                                                }
+    // End of Main Counter
+
+    /*The Main Sales*/ 
+    &__sales                                                    {width: 100%;
+                                                                padding: 0 50px;
+                                                                transform: translateY(300px);
+                                                                transition: 1.5s;
+                                                                opacity: 0;
+
+        &.show                                                      {transform: translateY(0);
+                                                                    opacity: 1;}
+                                                                
+        p                                                           {color: $second__slider-btn;
+                                                                    @include fonts;
+                                                                    font-size: 2rem;
+                                                                    margin-bottom: 2rem;
+                                                                    font-weight: bold;}
+                                                            
+                                                                }
+
+
+    &__sales1                                                   {display: grid;
+                                                                grid-template-columns: repeat(4, 1fr);
+                                                                grid-gap: 30px;
+                                                                width: 100%;
+                                                                height: 100%;
+                                                            
+        a                                                           {height: 250px;
+                                                                    width: 100%;
+                                                                    border-radius: 20px;
+                                                                    overflow: hidden;
+                                                                    display: flex;
+                                                                    flex-flow: column;
+                                                                    text-decoration: none;}
+                                                            
+                                                                }
+
+    &__sales-image                                              {height: 75%;
+    
+        img                                                         {height: 100%;
+                                                                    width: 100%;
+                                                                    object-fit: cover;}
+    
+                                                                }
+
+    &__sales-text                                               {height: 25%;
+                                                                background: btn__overlay(0.05);
+                                                                display: flex;
+                                                                align-items: center;
+                                                                padding-left: 20px;
+                                                                font-size: 0.9rem;
+                                                                @include fonts;
+                                                                color: btn__overlay(0.9);
+                                                            
+        span                                                        {margin-left:20px;}
+                                                            
+                                                                }
+    /*End of Main Sales*/
+
+    // The Second Slider
+    &__second-slider                                            {display: grid;
+                                                                margin-top: 100px;
+                                                                grid-template-columns: 58% 42%;
+                                                                height: calc(100vh - 100px);}
+
+
+    &__second-slider-img                                        {width: 100%;
+                                                                height: 100%;
+                                                                overflow: hidden;
+                                                            
+        img                                                         {width: 100%;
+                                                                    height: 100%;
+                                                                    transition: 1s;
+                                                                    object-fit: cover;
+                                                                    
+            &:hover                                                     {transform: scale(1.1);}
+                                                                
+                                                                    }
+                                                            
+                                                                }
+                                                                                        
+    // End of Second slider
+
+    // The Main Buy
+    &__buy                                              {width: 100%;
+                                                        padding: 10vw 10vw;
+                                                        margin-top: 70px;
+                                                        margin-bottom: 50px;
+                                                        background: url('../images/bg.jpg') center center;}
+
+
+    &__buy1                                             {width: 100%;
+                                                        color: wheat;
+                                                        display: flex;
+                                                        justify-content: center;
+
+
+        h1                                                  {@include fonts;
+                                                            font-size: 2.2vw;}
+
+        &:not(:last-child)                                  {margin-bottom: 30px;}
+                                                    
+        a                                                   {background: $primary__color2;
+                                                            text-decoration: none;
+                                                            color: $primary__color;
+                                                            width: 150px;
+                                                            height: 35px;
+                                                            border-radius: 5px;
+                                                            font-size: 0.9rem;
+                                                            @include flexCenter;
+                                                            @include fonts;
+                                                        
+            &:not(:last-child)                                  {margin-right: 30px;}
+                                                        
+                                                            }
+                                                    
+                                                        }
+    // End of Main Buy
+
+    // The Page Navigator
+    &__navigator                                        {width: 100%;
+                                                        height: 60px;
+                                                        display: flex;
+                                                        justify-content: start;
+                                                        align-items: center;
+                                                        padding: 0 5vw;
+                                                        border-bottom: 1px solid rgba(154, 153, 154, 0.4);
+                                                        border-top: 1px solid rgba(154, 153, 154, 0.4);
+                                                    
+        a                                                   {text-decoration: none;
+                                                            color: $second__slider-btn;
+                                                            opacity: 95%;
+                                                            font-size: 0.9rem;}
+
+        span, p                                             {color: rgba(154, 153, 154, 1.0);
+                                                            @include fonts;
+                                                            font-size: 0.9rem;}
+
+        span                                                {margin-inline: 10px;}
+                                                    
+                                                        }
+    // End of Navigator
+
+    // The Main News Letter
+    &__newsletter                                       {padding: 80px 5vw;
+                                                        padding-bottom: 60px;
+                                                        border-bottom: 1px solid rgba(154, 153, 154, 0.4);
+                                                        width: 100%;
+                                                        display: grid;
+                                                        grid-template-columns: 28% 50% 22%;
+                                                        align-items: center;}
+
+    &__newsletter-text                                  {color: $second__slider-btn;
+                                                        @include fonts;
+                                                        font-size: 2.1vw;
+                                                        font-weight: bold;}
+
+    &__newsletter-form                                  {
+
+
+        form                                                {
+
+            input                                               {height: 50px;
+                                                                border-radius: 5px;
+                                                                border: 1px rgba(154, 153, 154, 0.6) solid;
+                                                                @include fonts;
+                                                                outline: none;
+                                                                font-size: 1rem;}
+
+            input[id="name"]                                    {padding-left: 10px;
+                                                                width: 30%;}
+
+            input[id="email"]                                   {padding-left: 10px;
+                                                                width: 40%;
+                                                                margin-left: 10px;}
+
+            input[value="Sign Up"]                              {margin-left: 10px;
+                                                                width: 90px;
+                                                                background: btn__overlay(0.9);
+                                                                border: none;
+                                                                cursor: pointer;
+                                                                color: $primary__color;}
+
+
+                                                            }
+
+                                                        }
+
+    &__newsletter-icons                                 {font-size: 2rem;
+                                                        cursor: default;
+                                                        margin-left: 10%;
+                                                        
+        a                                                   {text-decoration: none;
+                                                            color: btn__overlay(0.8);
+                                                            transition: 0.2s;
+                                                            
+            &:hover                                             {color: btn__overlay(0.9);}
+
+            i                                                   {margin-left: 2%;}
+                                                            
+                                                            }
+                                                        
+                                                        }
+    
+    // End of News Letter
+                                                    }
+/*End of Main*/
+
+/*The Footer*/
+.footer                                             {padding-top: 3%;
+
+    a                                                   {text-decoration: none;}
+
+
+    &1                                                  {width: 100%;
+                                                        display: grid;
+                                                        padding: 0 5vw;
+                                                        grid-gap: 5vw;
+                                                        grid-template-columns: repeat(5, 1fr);}
+
+    &1a                                                 {display: flex;
+                                                        flex-direction: column;
+
+        p                                                   {font-size: 1.2rem;
+                                                            margin-bottom: 25px;
+                                                            font-weight: bold;
+                                                            @include fonts;
+                                                            color: $second__slider-btn;
+                                                            transition: 0.2s;}
+
+        a                                                   {margin-bottom: 20px;
+                                                            color: rgba(30, 45, 50, 0.8);
+                                                            font-size: 0.95rem;
+                                                        
+            &:hover                                             {color: btn__overlay(0.9);}
+                                                        
+                                                            }
+
+
+                                                        }
+
+    &2                                                  {width: 100%;
+                                                        padding: 0 5vw;
+                                                        margin-top: 5%;
+                                                        padding-bottom: 15%;}
+
+    &2__image                                           {float: left;
+    
+        p:not(:last-child)                                  {margin-top: 12%;}
+
+        p                                                   {@include fonts;
+                                                            font-size: 0.8rem;
+                                                            margin-bottom: 0.3rem;
+                                                            color: rgba(30, 45, 50, 0.9);}
+    
+                                                        }
+
+    &2__logo                                            {
+
+        img                                                 {width: 150px;
+                                                            height: 35px;
+                                                            transition: 1s;}
+
+                                                        }
+
+    &2__text                                            {float: right;
+    
+        section                                             {display: flex;
+        
+            a                                                   {display: flex;
+                                                                gap: 20px;
+                                                                text-decoration: none;
+                                                                font-size: 1.25rem;
+                                                                align-items: center;
+                                                                @include fonts;
+                
+                p                                                   {color: $second__slider-btn;}
+                
+                i                                                   {color: btn__overlay(0.9);}
+                                                                
+                                                                }
+        
+                                                            }
+    
+                                                        }
+
+    &2__text2                                           {margin-top: 12%;
+                                                        text-align: right;
+                                                    
+        p                                                   {@include fonts;
+                                                            font-size: 0.8rem;
+                                                            margin-bottom: 0.3rem;
+                                                            color: rgba(30, 45, 50, 0.9);}
+                                                    
+                                                        }
+                        
+
+                                                    }
+/*End of Footer*/
+
+/*The Media Query*/
+@import 'media__query';
+/*End of Media Query*/
